@@ -36,8 +36,6 @@ class BinanceQuant:
         await self.get_open_positions()
         print(f"系统初始化完成，当前时间：{datetime.utcnow().isoformat()}")
 
-
-
     async def generate_report(self):
         with open('daily_report.md', 'w') as f:
             f.write(f"# {datetime.today()} 交易报告\n")
