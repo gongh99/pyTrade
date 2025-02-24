@@ -32,8 +32,9 @@ class BinanceQuant:
     async def initialize(self):
         """初始化交易系统"""
         await self.load_markets()
-        # await self.update_top_symbols()
+        """只获取已有仓位"""
         await self.get_open_positions()
+        # await self.update_top_symbols()
         print(f"系统初始化完成，当前时间：{datetime.utcnow().isoformat()}")
 
     async def generate_report(self):
@@ -353,7 +354,6 @@ class BinanceQuant:
         available = float(balance['USDT']['free'])
         if available < 200:
             return False
-
         return True
 
 
